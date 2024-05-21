@@ -1,0 +1,122 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container for the Form */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Form Heading */
+h1 {
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* Form Input Fields */
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Submit Button */
+input[type='submit'] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #000;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type='submit']:hover {
+  background-color: #333;
+}
+
+/* Link to Register/Login */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Error Messages */
+ul.errors {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+li.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #f5c6cb;
+  border-radius: 7px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+ul.messages {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+li.message {
+  background-color: #afe98f;
+  color: #000000;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #afe98f;
+  border-radius: 7px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 a:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SocialSync - Register</title>
+    <link rel="stylesheet" href="/public/css/styles.css" />
+  </head>
+
+  <body>
+    <h1><a href="/">SocialSync</a></h1>
+
+    <ul class="errors">
+      <% if (typeof errors != 'undefined'){ %> <% errors.forEach(error => { %>
+      <li class="error"><%= error.message %></li>
+      <% }) %> <% } %>
+    </ul>
+
+    <form action="/users/register" method="POST">
+      <div>
+        <input type="text" id="name" name="name" placeholder="name" required />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="email"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="password"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password2"
+          name="password2"
+          placeholder="confirm password"
+          required
+        />
+      </div>
+      <div>
+        <input type="submit" value="Register" />
+      </div>
+      <a href="/users/login">Already registered? login here</a>
+    </form>
+  </body>
+</html>

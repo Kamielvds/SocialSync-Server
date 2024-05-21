@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SocialSync - Login</title>
+    <link rel="stylesheet" href="/public/css/styles.css" type="text/css" />
+  </head>
+  <body>
+    <h1><a href="/">SocialSync</a></h1>
+
+    <ul class="messages">
+      <% if(messages.success_msg) { %>
+      <li class="message"><%= messages.success_msg %></li>
+      <% } %>
+    </ul>
+
+    <form action="/users/login" method="POST">
+      <div>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="email"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="password"
+          required
+        />
+      </div>
+      <div>
+        <input type="submit" value="Login" />
+      </div>
+      <a href="/users/register">Don't have an account? Register here</a>
+    </form>
+  </body>
+</html>
