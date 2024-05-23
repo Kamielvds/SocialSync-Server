@@ -7,6 +7,8 @@ const session = require('express-session');
 const flash = require('express-flash');
 const passport = require('passport');
 
+const initializePassport = require('./passportConfig');
+
 initializePassport(passport);
 
 app.set('view engine', 'ejs');
@@ -19,6 +21,9 @@ app.use(
     saveUninitialized: 'false',
   })
 );
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(flash());
 
@@ -50,17 +55,30 @@ app.post('/users/register', async (req, res) => {
     password2,
   });
 
+  //#region password checks
+
+  //fields
   if (!name || !email || !password || !password2) {
     errors.push({ message: 'Please enter all fields' });
   }
 
+  //password
   if (password.length < 6) {
     errors.push({ message: 'Password must be a least 6 characters long' });
   }
-
   if (password !== password2) {
     errors.push({ message: 'Passwords do not match' });
   }
+
+  // email
+  if (!email.contains('@')) {
+    errors.push({ message: 'Give a valid email' });
+  }
+  if (!email.split('@')[1].contains('.')) {
+    errors.push({ message: 'Give a valid email' });
+  }
+
+  //#endregion
 
   if (errors.length > 0) {
     res.render('register', { errors, name, email, password, password2 });
@@ -102,6 +120,16 @@ app.post('/users/register', async (req, res) => {
     );
   }
 });
+
+app.post(
+  '/users/login',
+  passport.authenticate('local', {
+    // redirect when logged in
+    successRedirect: '/users/dashboard',
+    failureRedirect: '/users/login',
+    failureFlash: true,
+  })
+);
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);

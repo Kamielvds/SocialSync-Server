@@ -15,6 +15,12 @@
       <% } %>
     </ul>
 
+    <ul class="errors">
+      <% if(messages.error){ %>
+      <li class="error"><%= messages.error %></li>
+      <%}%>
+    </ul>
+
     <form action="/users/login" method="POST">
       <div>
         <input
@@ -34,10 +40,21 @@
           required
         />
       </div>
+      <div><input type="checkbox" onclick="showPassword()" />Show Password</div>
       <div>
         <input type="submit" value="Login" />
       </div>
       <a href="/users/register">Don't have an account? Register here</a>
     </form>
+    <script>
+      function showPassword() {
+        var x = document.getElementById('myInput');
+        if (x.type === 'password') {
+          x.type = 'text';
+        } else {
+          x.type = 'password';
+        }
+      }
+    </script>
   </body>
 </html>
